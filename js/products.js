@@ -35,8 +35,8 @@ function showCategoriesList(autos){
         getJSONData(dire1).then(function(resultObj){
             if (resultObj.status === "ok")
             {
-                htmlContentToAppend  = resultObj.data;
-                showCategoriesList(htmlContentToAppend);
+                categoriesArray = resultObj.data;
+                showCategoriesList(categoriesArray);
             }
         });
     });

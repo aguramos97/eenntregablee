@@ -1,16 +1,16 @@
 function login1() {
-let usuario = {}
-usuario.nombre= document.getElementById("login").value;
-usuario.contraseña = document.getElementById("password").value;
-}
+let nombre = document.getElementById("login").value;
+let contraseña = document.getElementById("password").value;
 
-if(usuario.nombre!="" && usuario.contraseña!="") {
-   localStorage.setItem("Item", JSON.stringify(usuario));
-    location.href="index.html";
+if(nombre.length==0 || contraseña.length==0) {
+   alert("¡Debe introducir email y contraseña!");
 } 
 else {
-    alert("¡Debe introducir email y contraseña!");
+    localStorage.setItem("Item", JSON.stringify(login1));
+    location.href="index.html";
 }
+}
+
 
 document.addEventListener("DOMContentLoaded", () =>{
     document.getElementById("enviar").addEventListener("click", () => {
