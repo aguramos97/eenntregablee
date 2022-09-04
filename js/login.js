@@ -6,7 +6,7 @@ if(nombre.length==0 || contraseña.length==0) {
    alert("¡Debe introducir email y contraseña!");
 } 
 else {
-    localStorage.setItem("Item", JSON.stringify(login1));
+    localStorage.setItem("Item", nombre)
     location.href="index.html";
 }
 }

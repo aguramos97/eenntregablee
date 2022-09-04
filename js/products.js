@@ -1,4 +1,6 @@
-const dire1 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+catid = localStorage.getItem("catID");
+const dire1 = "https://japceibal.github.io/emercado-api/cats_products/"+catid+".json";
+
 let categoriesArray = []
 
 
@@ -11,7 +13,7 @@ function showCategoriesList(autos){
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
-                    <img scr="` + auto.image + `" alt="product image" class="img-thumbnail">
+                 <img src=`+ auto.image +` alt="product image" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
@@ -61,7 +63,12 @@ function showCategoriesList(autos){
             });
             showCategoriesList(result);
         });
-    
+
+        document.getElementById('limpiar').addEventListener('click', function () {
+            showCategoriesList(categoriesArray);
+          
+        });
+
         document.getElementById("sortByCount").addEventListener("click", function(){
             let result = [];
             result = categoriesArray.sort(function(a, b) {
@@ -74,7 +81,9 @@ function showCategoriesList(autos){
             });
             showCategoriesList(result);
         });
+   
     });
+
 
     function filtrar(){
         //parseInt porque es un string, y necesito un integer
@@ -87,33 +96,3 @@ function showCategoriesList(autos){
         showCategoriesList (listaFiltrada);
     
     }  
-
-    function sortCategories(criteria, array){
-        let result = [];
-        if (criteria === ORDER_ASC_BY_NAME)
-        {
-            result = array.sort(function(a, b) {
-                if ( a.cost < b.cost ){ return -1; }
-                if ( a.cost > b.cost ){ return 1; }
-                return 0;
-            });
-        }else if (criteria === ORDER_DESC_BY_NAME){
-            result = array.sort(function(a, b) {
-                if ( a.cost > b.cost ){ return -1; }
-                if ( a.cost < b.cost ){ return 1; }
-                return 0;
-            });
-        }else if (criteria === ORDER_BY_PROD_COUNT){
-            result = array.sort(function(a, b) {
-                let aCount = parseInt(a.soldCount);
-                let bCount = parseInt(b.soldCount);
-    
-                if ( aCount > bCount ){ return -1; }
-                if ( aCount < bCount ){ return 1; }
-                return 0;
-            });
-        }
-    
-        return result;
-    }
-
