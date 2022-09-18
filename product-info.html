@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fontawesome.com/icons/star?s=solid&f=classic" rel="stylesheet"> 
 </head>
 
 <body>
@@ -38,12 +39,26 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container" id="contenedor">
       </div>
+      <br>
+      <div><h5>Comentarios de otros usuarios:<h5></h5><ul id="comentarios"></ul></div>
+      <br>
+      <div>
+        <h6>Tú opinión: </h6>
+        <textarea name="nuevoComentario" id="nuevoComentario" rows="5" cols="85">Inserte su comentario aquí.</textarea>
+      </div>
+      Puntuación: <select id="puntuacion">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+    </select>
+      <button id="enviarstar">Enviar</button>
     </div>
   </main>
+  <br>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -66,6 +81,7 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/products.js"></script>
 </body>
 
 </html>

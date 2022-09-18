@@ -8,9 +8,8 @@ function showCategoriesList(autos){
     let htmlContentToAppend = "";
 
     for(let auto of autos){ 
-      
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setProductID(${auto.id})" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                  <img src=`+ auto.image +` alt="product image" class="img-thumbnail">
@@ -32,6 +31,10 @@ function showCategoriesList(autos){
     }
 }
 
+function setProductID(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html"
+}
 
     document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(dire1).then(function(resultObj){
@@ -96,3 +99,6 @@ function showCategoriesList(autos){
         showCategoriesList (listaFiltrada);
     
     }  
+
+  
+    

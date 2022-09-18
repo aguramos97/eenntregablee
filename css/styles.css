@@ -198,3 +198,17 @@ h5 {
   text-align: center;
 }
 
+textarea{
+  margin-left: 4cm;
+  margin-right: 4cm;
+}
+
+img {
+  align-items: center;
+}
+
+h6 {
+  text-align: center;
+  font-size: large;
+}
+
