@@ -1,5 +1,7 @@
 let articulos = [];
 let comentarios = [];
+let relacionados = [];
+
 
 function MostrarArticulos(array) {
     let htmlContentToAppend = "";
@@ -36,8 +38,6 @@ function MostrarComment(array) {
     document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
 }
-    
-
 
 function showImage(array) {
     let figura = array.images
@@ -63,11 +63,14 @@ function MostrarStar(numero) {
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    let usuario1= localStorage.getItem("Item");
+    document.getElementById("usuario").innerHTML=usuario1;
     let product1 = localStorage.getItem("productID")
     getJSONData(PRODUCT_INFO_URL + product1 + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
             articulos = resultObj.data;
             MostrarArticulos(articulos);
+            MostrarRelacionados(articulos);
         }
     });
     getJSONData(PRODUCT_INFO_COMMENTS_URL + product1 + ".json").then(function (resultObj) {
@@ -76,5 +79,19 @@ document.addEventListener("DOMContentLoaded", function (e) {
             MostrarComment(comentarios);
         }
     });
+    document.getElementById("usuario").innerHTML=usuario;
 });
 
+function MostrarRelacionados(relacionados) {
+    let htmlContentToAppend = ""
+    for (let product of relacionados.relatedProducts) { 
+
+    htmlContentToAppend += `
+        <li class="product-recommendations">
+            <p><strong>`+ product.name + `</strong> </p>
+            <img src="`+ product.image + `" alt="product image" class="img-thumbnail">
+        </li >
+        `
+    document.getElementById("recommend").innerHTML = htmlContentToAppend;
+}
+}

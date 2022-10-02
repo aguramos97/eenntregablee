@@ -27,7 +27,7 @@ function showCategoriesList(autos){
             </div>
         </div>
         `
-        document.getElementById("entregable1").innerHTML = htmlContentToAppend; 
+        document.getElementById("entregable1").innerHTML=htmlContentToAppend; 
     }
 }
 
@@ -37,6 +37,8 @@ function setProductID(id) {
 }
 
     document.addEventListener("DOMContentLoaded", function(e){
+        let usuario1= localStorage.getItem("Item");
+        document.getElementById("usuario").innerHTML=usuario1;
         getJSONData(dire1).then(function(resultObj){
             if (resultObj.status === "ok")
             {
