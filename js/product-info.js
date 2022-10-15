@@ -79,7 +79,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
             MostrarComment(comentarios);
         }
     });
-    document.getElementById("usuario").innerHTML=usuario;
+    document.getElementById("recommend").addEventListener("click", function() {
+        localStorage.setItem("productID", 50922);
+        window.location = "products-info.html"
+    });
+    
 });
 
 function MostrarRelacionados(relacionados) {
@@ -87,10 +91,10 @@ function MostrarRelacionados(relacionados) {
     for (let product of relacionados.relatedProducts) { 
 
     htmlContentToAppend += `
-        <li class="product-recommendations">
+        <div class="product-recommendations">
             <p><strong>`+ product.name + `</strong> </p>
-            <img src="`+ product.image + `" alt="product image" class="img-thumbnail">
-        </li >
+            <img src="`+ product.image + `" alt="product image" class="img-thumbnail" width=20% height=20%>
+        </div>
         `
     document.getElementById("recommend").innerHTML = htmlContentToAppend;
 }

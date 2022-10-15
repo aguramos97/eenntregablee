@@ -31,7 +31,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <button id="usuario" href="login.html" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button id="usuario" href="login.html" class="btn btn-secondary dropdown-toggle" type="button"
+                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Login
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -41,16 +42,37 @@
               </ul>
             </div>
           </li>
-         
+
         </ul>
       </div>
     </div>
   </nav>
   <main>
+    <p><strong>Carrito de compras</strong></p>
+    <p>Artículos a comprar</p>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <table>
+        <tr>
+          <th class="col-2"></th>
+          <th class="col">Nombre</th>
+          <th class="col">Costo</th>
+          <th class="col">Cantidad</th>
+          <th class="col">Subtotal</th>
+        </tr>
+        <tbody id="carrito">
+        </tbody>
+      </table>
+      <form>
+        <p>Tipo de envío:</p>
+        <input type="radio" name="ingresos" value="premium"> Premium de 2 a 5 días (15%)<br>
+        <input type="radio" name="ingresos" value="express"> Express 5 a 8 días (7%)<br>
+        <input type="radio" name="ingresos" value="standard"> Standard 12 a 15 días (5%)<br>
+        <p>Dirección de envío:</p>
+        <div>Calle <input class="form-control" type="text"></div>
+        <div>Número <input class="form-control" type="text"></div>
+        <div>Esquina <input class="form-control" type="text"></div><br>
+        <button type="button" class="btn btn-success">Comprar ahora</button>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
