@@ -48,7 +48,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <button id="usuario" href="login.html" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button id="usuario" href="login.html" class="btn btn-secondary dropdown-toggle" type="button"
+                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Login
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -64,9 +65,69 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <main>
+        <form action="#" method="get" class="row mt-4">
+          <div class="col">
+            <h1 class="mb-3">Perfil</h1>
+            <hr class="my-4">
+            <div class="row g-3">
+
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Primer nombre*</label>
+                <input type="text" class="form-control" id="nombre" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un nombre.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control" id="nombre">
+              </div>
+
+              <div class="col-sm-6">
+                <label for="apellido" class="form-label">Primer apellido *</label>
+                <input type="text" class="form-control" id="apellido" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un apellido. 
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="apellido" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control" id="2apellido">
+              </div>
+
+              <div class="col-sm-6">
+                <label for="email" class="form-label">Email*</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">
+                  Debe ingresar un email correcto. 
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="phone" class="form-label">Teléfono de contacto</label>
+                <input type="number" class="form-control" id="phone">
+              </div>
+
+              <button id="cambios" class="btn btn-success" type="submit">Guardar cambios</button>
+
+
+            </div>
+          </div>
+        </form>
+
+        <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+          <p>Datos guardados correctamente</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+          <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+      </main>
     </div>
   </main>
   <footer class="text-muted">
