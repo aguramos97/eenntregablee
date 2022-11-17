@@ -10,7 +10,7 @@ function perfil () {
         showAlertSuccess();
 
     }
-    
+    localStorage.setItem()
 }
 
 function showAlertSuccess() {
@@ -24,8 +24,15 @@ function showAlertError() {
 
 
 document.addEventListener('DOMContentLoaded', () => {  
-    let boton = document.getElementById('cambios')
-    boton.addEventListener('click', () => {
+    let boton1 = document.getElementById('cambios')
+    boton1.addEventListener('click', () => {
         perfil();
     })
 });
+
+function recordardatos() {
+
+localStorage.getItem('login');
+
+localStorage.setItem('perfil', JSON.stringify(perfilUsuario))
+}
