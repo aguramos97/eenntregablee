@@ -1,5 +1,6 @@
 const CARRITO = CART_INFO_URL;
 let producto = [];
+let totalAll = 0;
 
 function MostrarCarrito(array) {
     let htmlContentToAppend = "";
@@ -10,9 +11,9 @@ function MostrarCarrito(array) {
             <tr>
             <td class="col"> <img width=150 src="`+ producto.image + `"></td>
             <td class="col">`+ producto.name + `</td>
-            <td class="col">`+ producto.currency + producto.unitCost + `</td>
-            <td class="col"> <input type="number" onchange="pepe(${producto.unitCost})" min=1 id="sumar" value="${producto.count}"></td>
-            <td class="col" id="subTotal">${producto.unitCost * producto.count} </td>
+            <td class="col"><span class="price">`+ producto.currency + producto.unitCost + `</span></td>
+            <td class="col"> <input class="cantidad" type="number" onchange="pepe(${producto.unitCost})" min=1 id="sumar" value="${producto.count}"></td>
+            <td class="col" id="subTotal"><span class="subtotall">${producto.currency} ${producto.unitCost * producto.count} </span></td>
             </tr>`}
 
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
@@ -29,8 +30,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function pepe(a) {
     let valor = document.getElementById("sumar").value;
-    let total = valor * a;
-    document.getElementById("subTotal").innerHTML = total;
+    totalAll = valor * a;
+    document.getElementById("subTotal").innerHTML = "USD" + totalAll;
+    calculando();
 }
 
 function pago() {
@@ -63,3 +65,25 @@ function checkeado() {
     }
 }
 
+function calculando() {
+    let cantidades = document.getElementsByClassName('cantidad');
+    let precios = document.getElementsByClassName('price');
+    let subtotales = document.getElementsByClassName('subtotall');
+    let envios = document.getElementsByName('ingresos');
+    let subtotal = totalAll, costoEnvio = 0, total = 0;
+
+
+
+    for (let envio of envios) {
+       if(envio.checked) {
+            costoEnvio=subtotal*envio.value;
+        }
+        envio.addEventListener('click',() => {
+                calculando();
+        })
+    }
+    total=subtotal+costoEnvio;
+    document.getElementById('productCostText').innerHTML=subtotal.toFixed(2);
+    document.getElementById('comissionText').innerHTML=subtotal.toFixed(2);
+    document.getElementById('totalCostText').innerHTML=subtotal.toFixed(2);
+}
